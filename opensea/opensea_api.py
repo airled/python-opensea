@@ -98,6 +98,7 @@ class OpenseaAPI:
         occurred_after=None,
         collection_editor=None,
         export_file_name="",
+        cursor=None,
     ):
         """Fetches Events data from the API. Function arguments will be passed
         as API query parameters.
@@ -134,6 +135,7 @@ class OpenseaAPI:
             "auction_type": auction_type,
             "collection_editor": collection_editor,
             "limit": self.MAX_EVENT_ITEMS if limit is None else limit,
+            "cursor": cursor,
         }
         if occurred_before is not None:
             query_params["occurred_before"] = occurred_before.timestamp()
