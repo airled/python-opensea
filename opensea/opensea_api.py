@@ -265,6 +265,7 @@ class OpenseaAPI:
         limit=None,
         collection=None,
         export_file_name="",
+        cursor=None,
     ):
         """Fetches assets data from the API. Function arguments will be passed
         as API query parameters, without modification.
@@ -289,6 +290,7 @@ class OpenseaAPI:
             "offset": offset,
             "limit": self.MAX_ASSET_ITEMS if limit is None else limit,
             "collection": collection,
+            "cursor": cursor,
         }
         return self._make_request("assets", query_params, export_file_name)
 
